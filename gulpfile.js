@@ -13,9 +13,12 @@ var patterns = [
     }
 ];
 
+// TODO: move file names to variables
 gulp.task('build', function () {
     return gulp.src('hide_interstitials/hideInterstitials.js')
-        .pipe(uglify())
+        .pipe(uglify({
+            mangle: false
+        }))
         .pipe(addsrc.prepend('prefix.js')) 
         .pipe(concat('hideInterstitials.min.js'))
         .pipe(frep(patterns))
