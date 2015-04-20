@@ -17,7 +17,6 @@ gulp.task('build', function () {
     return gulp.src('hide_interstitials/hideInterstitials.js')
         .pipe(uglify())
         .pipe(addsrc.prepend('prefix.js')) 
-        .pipe(addsrc.append('suffix.js')) 
         .pipe(concat('hideInterstitials.min.js'))
         .pipe(frep(patterns))
         .pipe(gulp.dest('build'))
